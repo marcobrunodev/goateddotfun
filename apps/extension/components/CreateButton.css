@@ -1,0 +1,59 @@
+[data-theme="dark"].create-button,
+[data-theme="dim"].create-button {
+  --button-bg: rgba(251, 190, 35, 0.1);
+  --button-hover-bg: rgba(251, 190, 35, 0.2);
+  --button-text: rgb(251, 190, 35);
+  --border-color: rgba(251, 190, 35, 0.3);
+}
+
+[data-theme="light"].create-button {
+  --button-bg: rgba(218, 165, 32, 0.1);
+  --button-hover-bg: rgba(218, 165, 32, 0.2);
+  --button-text: rgb(184, 134, 11);
+  --border-color: rgba(218, 165, 32, 0.3);
+}
+
+.create-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  margin-left: 8px;
+  background: var(--button-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  color: var(--button-text);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.create-button:hover {
+  background: var(--button-hover-bg);
+  transform: scale(1.02);
+}
+
+.create-button:active {
+  transform: scale(0.98);
+}
+
+[data-theme="dark"] .ticket-icon,
+[data-theme="dim"] .ticket-icon {
+  width: 16px;
+  height: 16px;
+  /* Filtro para deixar o ícone dourado (FBBE23) */
+  filter: invert(77%) sepia(61%) saturate(463%) hue-rotate(358deg) brightness(102%) contrast(98%);
+}
+
+[data-theme="light"] .ticket-icon {
+  width: 16px;
+  height: 16px;
+  /* Filtro para deixar o ícone dourado escuro (B8860B) */
+  filter: invert(53%) sepia(67%) saturate(636%) hue-rotate(1deg) brightness(92%) contrast(85%);
+}
+
+.create-text {
+  line-height: 1;
+}

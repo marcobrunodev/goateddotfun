@@ -29,9 +29,14 @@ export function isValidSolanaAddress(address: string): boolean {
  * @returns Array de endereços válidos encontrados
  */
 export function extractSolanaAddresses(text: string): string[] {
+  // Remove URLs do texto antes de procurar endereços
+  // Isso evita capturar endereços que estão dentro de URLs como:
+  // https://pump.fun/coin/H2Zny4tZfQTM4AbSM4bvLLo4meAokFT2aCxDC634pump
+  const textWithoutUrls = text.replace(/https?:\/\/[^\s]+/g, '');
+
   // Regex para capturar sequências base58 com tamanho de wallet Solana
   const base58Regex = /\b[1-9A-HJ-NP-Za-km-z]{32,44}\b/g;
-  const matches = text.match(base58Regex) || [];
+  const matches = textWithoutUrls.match(base58Regex) || [];
 
   // Filtra apenas os que são wallets válidas
   return matches.filter(isValidSolanaAddress);

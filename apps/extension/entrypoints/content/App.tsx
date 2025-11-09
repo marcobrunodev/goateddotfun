@@ -1,15 +1,21 @@
 import { PortalContext } from '@/contexts/PortalContext';
 import { WalletButton } from '@/components/WalletButton';
+import { CreateButton } from '@/components/CreateButton';
 
 interface ContentAppProps {
-  address: string;
+  address?: string;
   portalTarget: HTMLElement;
+  type: 'wallet' | 'create';
 }
 
-export function ContentApp({ address, portalTarget }: ContentAppProps) {
+export function ContentApp({ address, portalTarget, type }: ContentAppProps) {
   return (
     <PortalContext.Provider value={portalTarget}>
-      <WalletButton address={address} />
+      {type === 'wallet' && address ? (
+        <WalletButton address={address} />
+      ) : (
+        <CreateButton />
+      )}
     </PortalContext.Provider>
   );
 }

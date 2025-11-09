@@ -7,7 +7,68 @@
   }
 }
 
-.wrapper {
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+[data-theme="dark"].goat,
+[data-theme="dim"].goat {
+  --font-color: white;
+  --base: #F4E6C4;
+  --animation: linear-gradient( 90deg, #fbbe230f 0%, #fbbe23 50%, #fbbe230f 100% );
+  --active-base: #98edcc;
+  --success-animation: linear-gradient( 90deg, rgba(255, 255, 255, 0) 0%, #1CE899 50%, rgba(255, 255, 255, 0) 100% );
+}
+
+[data-theme="light"].goat {
+  --font-color: black;
+  --base: #afa9ec;
+  --animation: linear-gradient( 90deg, #382ea824 0%, #382EA8 50%, #382ea824 100% );
+  --active-base: #98edcc;
+  --success-animation: linear-gradient( 90deg, rgba(255, 255, 255, 0) 0%, #1CE899 50%, rgba(255, 255, 255, 0) 100% );
+} 
+
+.goat {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.goat * {
+  transition: all 2s ease;
+}
+
+.goat:not(.-active):hover .goat-img-container,
+.goat:not(.-active):hover .animation-border{
+  filter: brightness(1.1);
+  animation: pulse 1s ease-out infinite;
+}
+
+.goat.-active {
+  --base: #98edcc;
+  --animation: linear-gradient( 90deg, #1ce89a11 0%, #1CE899 50%, #1ce89a11 100% );
+}
+
+.wrapper-animation-border{
+  height: 34px;
+  width: 34px;
+  margin-left: 5px;
+  padding: 0;
+  position: relative;
+  overflow: visible;
+}
+
+.animation-border {
   height: 32px;
   width: 32px;
   background: transparent;
@@ -15,14 +76,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  overflow: hidden; /* Volta para hidden - animação da borda funciona */
   position: relative;
 }
 
-.wrapper:before {
+.animation-border:before {
   content: "";
   display: block;
-  background: linear-gradient( 90deg, rgba(255, 255, 255, 0) 0%, #fbbe23 50%, rgba(255, 255, 255, 0) 100% );
+  background: var(--animation);
   height: 50px;
   width: 30px;
   position: absolute;
@@ -31,22 +92,74 @@
   transform: translate(0);
   transform-origin: top center;
   animation: rotate 3s linear infinite;
+  opacity: 1;
+  transition: opacity 0.5s ease;
 }
 
-.goat-img-wrapper {
+.animation-border:after {
+  content: "";
+  display: block;
+  background: var(--success-animation);
+  height: 50px;
+  width: 30px;
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  transform: translate(0);
+  transform-origin: top center;
+  animation: rotate 3s linear infinite;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.goat.-active .animation-border:before {
+  opacity: 0;
+}
+
+.goat.-active .animation-border:after {
+  opacity: 1;
+}
+
+.prize {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: var(--font-color);
   height: 28px;
-  border: 1px solid #f4e6c4;
+  border: 1px solid var(--base);
   padding: 0 8px;
   border-radius: 4px;
   gap: 4px;
   margin-left: 6px;
-  font-size: 14px
+  font-size: 14px;
+  transition: border-color 0.5s ease;
 }
 
-.goat-img-wrapper img {
-  height: 20px;
+.goat.-active .prize {
+  border-color: var(--active-base);
+}
+
+.prize img {
+  height: 12px;
+}
+
+.goat-img-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  background: var(--base);
+  height: 28px;
+  width: 28px;
+  position: relative;
+  overflow: visible;
+  z-index: 10;
+}
+
+.goat.-active .goat-img-container {
+  background: #98edcc;
+}
+
+.confetti {
+  box-shadow: 0 0 8px rgba(251, 190, 35, 0.6);
 }
