@@ -21,6 +21,7 @@
     "react-dom": "^19.1.1"
   },
   "devDependencies": {
+    "@types/canvas-confetti": "^1.9.0",
     "@types/react": "^19.1.12",
     "@types/react-dom": "^19.1.9",
     "@wxt-dev/module-react": "^1.1.3",

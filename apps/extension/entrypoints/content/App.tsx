@@ -6,15 +6,16 @@ interface ContentAppProps {
   address?: string;
   portalTarget: HTMLElement;
   type: 'wallet' | 'create';
+  tweetUrl?: string;
 }
 
-export function ContentApp({ address, portalTarget, type }: ContentAppProps) {
+export function ContentApp({ address, portalTarget, type, tweetUrl }: ContentAppProps) {
   return (
     <PortalContext.Provider value={portalTarget}>
       {type === 'wallet' && address ? (
         <WalletButton address={address} />
       ) : (
-        <CreateButton />
+        <CreateButton tweetUrl={tweetUrl} />
       )}
     </PortalContext.Provider>
   );

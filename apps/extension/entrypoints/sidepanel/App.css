@@ -1,0 +1,278 @@
+/* Container principal */
+.app-container {
+  width: 100%;
+  min-height: 100vh;
+  background: #09090b;
+  color: #fafafa;
+}
+
+/* Header */
+.app-header {
+  padding: 24px;
+  border-bottom: 1px solid #27272a;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #f5d073 0%, #fbbf24 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.header-icon img {
+  width: 30px;
+  height: 30px;
+}
+
+.header-text h1 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fafafa;
+}
+
+.header-text h2 {
+  margin: 0;
+  font-size: 14px;
+  color: #a1a1aa;
+}
+
+/* Main content */
+.app-main {
+  padding: 24px;
+}
+
+.content-wrapper {
+  max-width: 600px;
+}
+
+.content-wrapper h2 {
+  margin: 0 0 24px 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fafafa;
+}
+
+/* Form */
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field label {
+  margin-bottom: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #d4d4d8;
+  margin-left: 4px;
+  text-transform: uppercase;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: 12px 16px;
+  background: #18181b;
+  border: 1px solid #3f3f46;
+  border-radius: 8px;
+  color: #fafafa;
+  font-size: 14px;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: #71717a;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: #fbbf24;
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.1);
+}
+
+.tweet-link-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: #18181b;
+  border: 1px solid #27272a;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.tweet-link-container:hover {
+  background: #27272a;
+  border-color: #fbbf24;
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.1);
+}
+
+.tweet-link {
+  flex: 1;
+  color: #fbbf24;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.tweet-link:hover {
+  text-decoration: underline;
+}
+
+.copy-button {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: #27272a;
+  border: 1px solid #3f3f46;
+  border-radius: 6px;
+  color: #a1a1aa;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.copy-button:hover {
+  background: #3f3f46;
+  color: #fbbf24;
+  border-color: #fbbf24;
+}
+
+.copy-button:active {
+  transform: scale(0.95);
+}
+
+.copy-button svg {
+  width: 16px;
+  height: 16px;
+}
+
+.tweet-link-placeholder {
+  display: block;
+  padding: 12px 16px;
+  background: #09090b;
+  border: 1px solid #27272a;
+  border-radius: 8px;
+  color: #71717a;
+  font-style: italic;
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Submit button */
+.submit-button {
+  width: 100%;
+  padding: 14px 24px;
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  color: #18181b;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+}
+
+.submit-button:hover {
+  background: linear-gradient(135deg, #fcd34d 0%, #fbbf24 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(251, 191, 36, 0.25);
+}
+
+.submit-button:active {
+  transform: translateY(0);
+}
+
+.submit-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.2);
+}
+
+/* Prize and Winner fields - special styling */
+.form-field.prize-field input {
+  padding-left: 40px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.form-field.prize-field {
+  position: relative;
+}
+
+.form-field.prize-field::before {
+  content: "◎";
+  position: absolute;
+  left: 16px;
+  top: 38px;
+  color: #fbbf24;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.form-field.winner-field input {
+  padding-left: 40px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.form-field.winner-field {
+  position: relative;
+}
+
+.form-field.winner-field::before {
+  content: "🏆";
+  position: absolute;
+  left: 14px;
+  top: 36px;
+  font-size: 18px;
+}
+
+/* Info text */
+.field-info {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #71717a;
+  margin-left: 4px;
+}
+
+/* Two column layout for prize and winner */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 400px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}

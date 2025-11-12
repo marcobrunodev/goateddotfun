@@ -73,6 +73,17 @@ function isOwnTweet(tweetElement: HTMLElement): boolean {
   return authorUsername === loggedInUsername;
 }
 
+function getTweetUrl(tweetElement: HTMLElement): string | null {
+  const timeLink = tweetElement.querySelector('a[href*="/status/"]');
+  if (timeLink) {
+    const href = timeLink.getAttribute('href');
+    if (href) {
+      return `https://twitter.com${href}`;
+    }
+  }
+  return null;
+}
+
 function scanForWallets(ctx: ContentScriptContext) {
   const tweets = document.querySelectorAll('article[data-testid="tweet"]');
 
@@ -94,7 +105,8 @@ function scanForWallets(ctx: ContentScriptContext) {
     if (addresses.length > 0) {
       injectButton(ctx, tweetElement, 'wallet', addresses[0]);
     } else {
-      injectButton(ctx, tweetElement, 'create');
+      const tweetUrl = getTweetUrl(tweetElement);
+      injectButton(ctx, tweetElement, 'create', undefined, tweetUrl || undefined);
     }
   });
 }
@@ -103,7 +115,8 @@ async function injectButton(
   ctx: ContentScriptContext,
   tweetElement: HTMLElement,
   type: 'wallet' | 'create',
-  walletAddress?: string
+  walletAddress?: string,
+  tweetUrl?: string
 ) {
   const actionsBar = tweetElement.querySelector('[role="group"]');
   if (!actionsBar) return;
@@ -131,6 +144,7 @@ async function injectButton(
           address={walletAddress}
           portalTarget={portalTarget}
           type={type}
+          tweetUrl={tweetUrl}
         />
       );
 

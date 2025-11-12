@@ -1,0 +1,22 @@
+{
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": ["/assets/*.{png,jpg,gif,svg}", "/img/*.{png,jpg,gif,svg}"]
+  },
+  "routes": [
+    {
+      "route": "/*",
+      "methods": ["GET", "POST", "PUT", "DELETE"],
+      "allowedRoles": ["anonymous"]
+    }
+  ],
+  "globalHeaders": {
+    "content-security-policy": "default-src 'self' 'unsafe-inline' 'unsafe-eval' https: data: blob:",
+    "cache-control": "no-cache, no-store, must-revalidate"
+  },
+  "mimeTypes": {
+    ".json": "application/json",
+    ".js": "application/javascript",
+    ".mjs": "application/javascript"
+  }
+}

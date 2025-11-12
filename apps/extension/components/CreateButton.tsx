@@ -4,7 +4,11 @@ import './CreateButton.css';
 
 type TwitterTheme = 'light' | 'dim' | 'dark';
 
-export function CreateButton() {
+interface CreateButtonProps {
+  tweetUrl?: string;
+}
+
+export function CreateButton({ tweetUrl }: CreateButtonProps) {
   const [theme, setTheme] = useState<TwitterTheme>('light');
 
   useEffect(() => {
@@ -38,11 +42,19 @@ export function CreateButton() {
     return () => observer.disconnect();
   }, []);
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClick = async (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     event.stopPropagation();
-    console.log('Create button clicked!');
-    // TODO: Adicionar lógica de criação de task
+
+    // Envia mensagem para o background script abrir o popup
+    try {
+      await browser.runtime.sendMessage({
+        action: 'openPopup',
+        tweetUrl: tweetUrl
+      });
+    } catch (error) {
+      console.error('Error opening popup:', error);
+    }
   };
 
   return (
