@@ -57,10 +57,28 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 10px;
 }
 
+/* Mobile first approach - Base styles for mobile */
+@media (max-width: 768px) {
+  :root, html, body {
+    font-size: 8px; /* Slightly smaller base font for mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  :root, html, body {
+    font-size: 7px; /* Even smaller for very small screens */
+  }
+}
+
 body {
   font-family: 'Inter', sans-serif;
   color: #FFF;
   background: url('/layer1.png') no-repeat bottom center;
   background-color: #3B30AF;
-  height: 100vh;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+p {
+  font-weight: bold;
 }

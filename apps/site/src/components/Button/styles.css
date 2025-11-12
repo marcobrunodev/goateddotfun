@@ -9,12 +9,43 @@
   font-weight: bold;
   cursor: pointer;
   transition: transform 0.2s;
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
+  white-space: nowrap;
 }
 
 .button:hover {
   transform: scale(1.05);
-  
+}
+
+/* Tablet styles */
+@media (max-width: 768px) {
+  .button {
+    font-size: 2rem;
+    padding: 1rem 1.8rem;
+    border-width: 0.3rem;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 480px) {
+  .button {
+    font-size: 1.8rem;
+    padding: 0.8rem 1.6rem;
+    gap: 0.8rem;
+    border-radius: 1.6rem;
+  }
+}
+
+/* Touch devices - remove hover effect */
+@media (hover: none) {
+  .button:hover {
+    transform: none;
+  }
+
+  .button:active {
+    transform: scale(0.98);
+  }
 }

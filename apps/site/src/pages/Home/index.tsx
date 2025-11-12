@@ -15,14 +15,16 @@ function Home() {
         
         <div className="container">
           <p>
-            Everyone here runs raffles, tags frens, boosts posts and keeps the feed spinning. That energy shouldn’t be free.<br/>
-            We turn the grind into payoff. 
+            Everyone runs raffles, tags frens, boosts posts.
           </p>
           <p>
-            Your posts become pools. Your participants get a stake. Everyone eats when the timeline moves.
+            That energy shouldn’t be free.
           </p>
           <p>
-            Same raffles. Same chaos. Now it pays.
+            We turn grind into payoff. Posts become pools, everyone eats.
+          </p>
+          <p>
+            Same chaos. Now it pays.
           </p>
         </div>
 

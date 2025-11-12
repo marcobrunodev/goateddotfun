@@ -3,5 +3,29 @@
   font-weight: bold;
   line-height: 1em;
   max-width: 100rem;
-  width: 100%;;
+  width: 100%;
+}
+
+/* Tablet styles */
+@media (max-width: 768px) {
+  .title {
+    font-size: 8rem;
+    max-width: 70rem;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 480px) {
+  .title {
+    font-size: 6rem;
+    max-width: 100%;
+    line-height: 1.1em;
+  }
+}
+
+/* Very small mobile */
+@media (max-width: 375px) {
+  .title {
+    font-size: 5rem;
+  }
 }
