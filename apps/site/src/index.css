@@ -71,7 +71,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
   color: #FFF;
   background: url('/layer1.png') no-repeat bottom center;
   background-color: #3B30AF;
