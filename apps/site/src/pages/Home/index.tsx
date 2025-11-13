@@ -1,6 +1,7 @@
 import { Button } from "../../components/Button"
 import { Logo } from "../../components/Logo"
 import { Title } from "../../components/Title"
+import { Twitter } from "../../components/Twitter"
 import './styles.css'
 
 function Home() {
@@ -31,6 +32,10 @@ function Home() {
         <Button withArrow onClick={() => alert('Clicked!')}>
           Get started
         </Button>
+
+        <footer className="home-footer">
+          <Twitter />
+        </footer>
       </main>
     </>
   )

@@ -77,5 +77,6 @@ body {
   background: url('/layer1.png') no-repeat bottom center;
   background-color: #3B30AF;
   min-height: 100vh;
-  overflow-x: hidden;
+  height: 100vh;
+  overflow: hidden;
 }
